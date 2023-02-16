@@ -11,11 +11,14 @@ public final class ClassesLoading {
 		classInfo.add(new Classes("III",20));
 		classInfo.add(new Classes("IV",20));
 		classInfo.add(new Classes("V",20));
-		classInfo.add(new Classes("VI",40));
-		classInfo.add(new Classes("VII",40));
-		classInfo.add(new Classes("VIII",40));
-		classInfo.add(new Classes("IX",50));
-		classInfo.add(new Classes("X",50));
+		classInfo.add(new Classes("VI",20));
+		classInfo.add(new Classes("VII",20));
+		classInfo.add(new Classes("VIII",20));
+		classInfo.add(new Classes("IX",20));
+		classInfo.add(new Classes("X",20));
+		classInfo.add(new Classes("XI",20));
+		classInfo.add(new Classes("XII",20));
+		
 		return classInfo;
 		
 	}
