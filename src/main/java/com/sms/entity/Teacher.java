@@ -5,9 +5,9 @@ import java.util.List;
 public final class Teacher {
 	public int id;
 	public String name;
-	public List<Subject> subjects;
+	public Subject subjects;
 	
-	public Teacher(int id, String name, List<Subject>subject) {
+	public Teacher(int id, String name, Subject subject) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -30,11 +30,11 @@ public final class Teacher {
 		this.name = name;
 	}
 
-	public final List<Subject> getSubject() {
+	public final Subject getSubject() {
 		return subjects;
 	}
 
-	public final void setSubject(List<Subject> subject) {
+	public final void setSubject(Subject subject) {
 		this.subjects = subject;
 	}
 

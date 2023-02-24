@@ -29,8 +29,7 @@ public class TeacherController {
 			 System.out.println("No record found.");
 		 }
 		
-		s.close();
-		
-		
+		s.close();		
 	}
+	
 }

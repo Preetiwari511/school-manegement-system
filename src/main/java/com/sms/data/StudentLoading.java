@@ -2,8 +2,6 @@ package com.sms.data;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
-
-import com.sms.entity.Classes;
 import com.sms.entity.Student;
 import com.sms.service.ClassService;
 import com.sms.service.impl.ClassServiceImpl;
@@ -12,30 +10,31 @@ public class StudentLoading {
 	public static Set<Student> loadStudents() {
 		ClassService classService = new ClassServiceImpl();
 		Set<Student>students = new LinkedHashSet<Student>();
-		students.add(new Student(11,"Aman Gupta",12,"Male",classService.getClass("I")));
-//		students.add(new Student(12,"Kishina Dubey",12,"Female",new Classes("I",20)));
-//		students.add(new Student(21,"Binod Ala",13,"Male",new Classes("II",20)));
-//		students.add(new Student(22,"AS WW",13,"Female",new Classes("II",20)));
-//		students.add(new Student(31,"Jigisha Mehra",14,"Male",new Classes("III",20)));
-//		students.add(new Student(32,"Oshi Sharma",14,"Female",new Classes("III",20)));
-//		students.add(new Student(41,"Vishal M",15,"Male",new Classes("IIV",20)));
-//		students.add(new Student(42,"Zoya Shekh",15,"Female",new Classes("IV",20)));
-//		students.add(new Student(51,"Mahesh Bongale",12,"Male",new Classes("V",20)));
-//		students.add(new Student(52,"Mahesh Bongale",12,"Female",new Classes("V",20)));
-//		students.add(new Student(61,"Mahesh Bongale",12,"Male",new Classes("VI",20)));
-//		students.add(new Student(62,"Mahesh Bongale",12,"Female",new Classes("VI",20)));
-//		students.add(new Student(71,"Mahesh Bongale",12,"Male",new Classes("VII",20)));
-//		students.add(new Student(72,"Mahesh Bongale",12,"Female",new Classes("VII",20)));
-//		students.add(new Student(81,"Mahesh Bongale",12,"Male",new Classes("VIII",20)));
-//		students.add(new Student(82,"Mahesh Bongale",12,"Female",new Classes("VIII",20)));
-//		students.add(new Student(91,"Mahesh Bongale",12,"Male",new Classes("IX",20)));
-//		students.add(new Student(92,"Mahesh Bongale",12,"Female",new Classes("IX",20)));
-//		students.add(new Student(101,"Mahesh Bongale",12,"Male",new Classes("X",20)));
-//		students.add(new Student(102,"Mahesh Bongale",12,"Female",new Classes("X",20)));
-//		students.add(new Student(111,"Mahesh Bongale",12,"Male",new Classes("XI",20)));
-//		students.add(new Student(112,"Mahesh Bongale",12,"Female",new Classes("XI",20)));
-//		students.add(new Student(121,"Mahesh Bongale",12,"Male",new Classes("XII",20)));
-//		students.add(new Student(122,"Mahesh Bongale",12,"Female",new Classes("XII",20)));
+		//use map instead of calling classService.getClass 
+		students.add(new Student(11,"Aman Gupta",6,"Male",classService.getClass("I")));
+		students.add(new Student(12,"Kishina Dubey",6,"Female",classService.getClass("I")));
+		students.add(new Student(21,"Binod Ala",7,"Male",classService.getClass("II")));
+		students.add(new Student(22,"AS WW",7,"Female",classService.getClass("II")));
+		students.add(new Student(31,"Jigisha Mehra",8,"Male",classService.getClass("III")));
+		students.add(new Student(32,"Oshi Sharma",8,"Female",classService.getClass("III")));
+		students.add(new Student(41,"Vishal M",9,"Male",classService.getClass("IV")));
+		students.add(new Student(42,"Zoya Shekh",9,"Female",classService.getClass("IV")));
+		students.add(new Student(51,"Riyan Mehra",10,"Male",classService.getClass("V")));
+		students.add(new Student(52,"Suhani Mishra",10,"Female",classService.getClass("V")));
+		students.add(new Student(61,"Krish Gupta",11,"Male",classService.getClass("VI")));
+		students.add(new Student(62,"Khushi Mittal",11,"Female",classService.getClass("VI")));
+		students.add(new Student(71,"Anup Kajol",12,"Male",classService.getClass("VII")));
+		students.add(new Student(72,"Binni Chattarji",12,"Female",classService.getClass("VII")));
+		students.add(new Student(81,"Mohit manjha",13,"Male",classService.getClass("VIII")));
+		students.add(new Student(82,"Moena Mishthi",13,"Female",classService.getClass("VIII")));
+		students.add(new Student(91,"Himesh Mehra",14,"Male",classService.getClass("IX")));
+		students.add(new Student(92,"Mukesh Otwani",14,"Male",classService.getClass("IX")));
+		students.add(new Student(101,"Ridhdhi Purohit",15,"Female",classService.getClass("X")));
+		students.add(new Student(102,"Dipak Sharma",15,"Male",classService.getClass("X")));
+		students.add(new Student(111,"Ishan Avasthi",16,"Male",classService.getClass("XI")));
+		students.add(new Student(112,"Rupali Gonsen",16,"Female",classService.getClass("XI")));
+		students.add(new Student(121,"Sourabh Sharma",17,"Male",classService.getClass("XII")));
+		students.add(new Student(122,"Surbhi Sharma",17,"Female",classService.getClass("XII")));
 		
 		return students;
 	}

@@ -38,10 +38,10 @@ public class Application {
 		System.out.println("Printing the details of the school");
 		System.out.println(SCHOOLINFO);
 		
-//		System.out.println("Printing all the subjects....");
-//		SUBJECTS.forEach(subject->{
-//			System.out.println(subject);
-//		});
+		System.out.println("Printing all the subjects....");
+		SUBJECTS.forEach(subject->{
+			System.out.println(subject.getName());});
+
 //		System.out.println("Printing the strength of each class");
 //		CLASSES.forEach(classes->{System.out.println(classes);});
 //		
@@ -62,17 +62,46 @@ public class Application {
 		 Thread.sleep(2000);
 		 
 		 switch(num) {
-		 	case 1: StudentController studentController = new StudentController();
-			studentController.showMyDetails();
+		 	case 1: 
+		 		StudentController studentController = new StudentController();
+		 		studentController.showMyDetails();
 			break;
 		 	case 2: 
 		 		TeacherController teacherController = new TeacherController();
-		 	teacherController.showStudentList();
+		 		teacherController.showStudentList();
 		 	break;
-		 	case 3:AdminController adminController = new AdminController();
-		 	adminController.allotTeacher();
+		 	case 3:
+		 		 System.out.println("Press 1,to get the details of student.");
+				 System.out.println("Press 2,to get the name of stundents in the class.");
+				 System.out.println("Press 3,to allot a classteacher.");
+				 System.out.println("Press 4,to get the teaching subject of a teacher.");
+				 System.out.println("Press 5,to get the total strength of the students in the school. ");
+				 int code = s.nextInt();
+				 switch(code) {
+				 	case 1:
+				 		StudentController studentController1 = new StudentController();
+				 		studentController1.showMyDetails();
+				 		break;
+				 	case 2: 
+				 		TeacherController teacherController1 = new TeacherController();
+				 		teacherController1.showStudentList();
+				 		 break;
+				 	case 3:
+				 		AdminController adminController = new AdminController();
+				 		adminController.allotTeacher();
+				 		break;
+				 	case 4:
+				 		AdminController adminController1 = new AdminController();
+				 		adminController1.getSubjectOfTeacher();
+				 	case 5:
+				 		AdminController adminController3 = new AdminController();
+				 		adminController3.getTotalStrength();
+				 		
+				 }
 		 	break;
-		 	default: 
+		 	default: {
+		 		System.out.println("******************Please enter the valid option.*****************");
+		 	}
 		 }
 		 s.close();
 		 

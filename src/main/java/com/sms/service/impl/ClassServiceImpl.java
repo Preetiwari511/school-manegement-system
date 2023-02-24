@@ -19,4 +19,14 @@ public class ClassServiceImpl implements ClassService{
 		return null;
 	}
 
+	@Override
+	public Integer getTotalStrength() {
+		Integer sum=0;
+		Set<Classes> classes = Application.CLASSES;
+		for(Classes obj: classes) {
+			sum = sum+ obj.getStrength();
+		}
+		return sum;
+	}
+
 }

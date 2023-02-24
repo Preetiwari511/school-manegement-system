@@ -29,8 +29,9 @@ public final class Classes {
 	}
 	@Override
 	public String toString() {
-		return "Classes [name=" + name + ", strength=" + strength + "]";
+		return "Classes [name=" + name + ", strength=" + strength + ", classTeacher=" + classTeacher + "]";
 	}
+	
 	
 
 }
