@@ -11,7 +11,7 @@ import com.sms.entity.*;
 
 public class Application {
 	public static Set<Subject> SUBJECTS;
-	public static Set<School> SCHOOLINFO;
+	public static Set<School> SCHOOLINFO; // change it to SCHOOL_INFO
 	public static Set<Classes> CLASSES;
 	public static Set<Teacher> TEACHER;
 	public static Set<Student> STUDENT;
@@ -60,7 +60,7 @@ public class Application {
 		 int num = s.nextInt();
 		 System.out.println("Loading........");
 		 Thread.sleep(2000);
-		 
+		 // use while loop here and run until user exits by himself
 		 switch(num) {
 		 	case 1: 
 		 		StudentController studentController = new StudentController();
@@ -96,10 +96,13 @@ public class Application {
 				 	case 5:
 				 		AdminController adminController3 = new AdminController();
 				 		adminController3.getTotalStrength();
+					// add a case to go back to the main menu
 				 		
 				 }
 		 	break;
+			// add a case to exit
 		 	default: {
+				// not useful untill this is not part of while loop
 		 		System.out.println("******************Please enter the valid option.*****************");
 		 	}
 		 }
