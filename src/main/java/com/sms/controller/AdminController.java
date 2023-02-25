@@ -24,6 +24,8 @@ public class AdminController {
 			System.out.println(teacher.getName());
 		});
 		String teacher = s.next();
+		// not useful if stored in local collection, use global collection here
+		// this should be part of AdminService
 		List<String> classTeacherData = new LinkedList<>();
 		classTeacherData.add(assignClass);
 		classTeacherData.add(teacher);
@@ -43,6 +45,7 @@ public class AdminController {
 	
 	public void getTotalStrength() {
 		ClassService classService = new ClassServiceImpl();
+		// take class name as input and print the strength of that
 		System.out.println("The total strength of the school is "+ classService.getTotalStrength());
 		
 	}
