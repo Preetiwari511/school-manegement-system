@@ -27,12 +27,12 @@ public class AdminServiceImpl implements AdminService{
 
 
 	@Override
-	public Subject findSubject(String teacher) {
+	public Set<Subject> findSubject(String teacher) {
 		Set<Teacher> teachers = Application.TEACHER;
 		Iterator<Teacher> itr = teachers.iterator();
 		while(itr.hasNext()) {
 			Teacher currentTeacher = itr.next();
-			if(currentTeacher.getName().equalsIgnoreCase(teacher)) {
+			if(currentTeacher.getFirstName().equalsIgnoreCase(teacher)) {
 				return currentTeacher.getSubject();
 			}
 		}

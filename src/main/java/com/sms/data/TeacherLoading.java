@@ -1,8 +1,13 @@
 package com.sms.data;
 
+import java.util.Arrays;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
+import com.sms.entity.Address;
 import com.sms.entity.Teacher;
+import com.sms.enums.Gender;
 import com.sms.service.SubjectsService;
 import com.sms.service.impl.SubjectsServiceImpl;
 
@@ -10,17 +15,27 @@ public final class TeacherLoading {
 	public static Set<Teacher> loadTeacher(){
 		Set<Teacher> teacher = new LinkedHashSet<Teacher>();
 		SubjectsService subjects = new SubjectsServiceImpl();
-		teacher.add(new Teacher(1,"M.K.GUPTA",subjects.getSubjects(12)));
-		teacher.add(new Teacher(2,"B.K.GUPTA",subjects.getSubjects(1)));
-		teacher.add(new Teacher(3,"C.K.GUPTA",subjects.getSubjects(9)));
-//		teacher.add(new Teacher(4,"H K GUPTA",subjects.getSubjects(3)));
-//		teacher.add(new Teacher(5,"L K GUPTA",subjects.getSubjects(6)));
-//		teacher.add(new Teacher(6,"V K GUPTA",subjects.getSubjects(7)));
-//		teacher.add(new Teacher(7,"G K GUPTA",subjects.getSubjects(11)));
-//		teacher.add(new Teacher(8,"V K GUPTA",subjects.getSubjects(13)));
-//		teacher.add(new Teacher(8,"C K GUPTA",subjects.getSubjects(2)));
-//		teacher.add(new Teacher(8,"O K GUPTA",subjects.getSubjects(8)));
-//		teacher.add(new Teacher(8,"W K GUPTA",subjects.getSubjects(10)));
+		
+		teacher.add(new Teacher(1L, "Mohan", "Gupta", "mohan@sms.com", "1209334489", new Date(1991,11,9), true,Gender.MALE.getGender(), 
+				new LinkedHashSet<>(Arrays.asList(new Address(9L, "Mini Lane", "Kolkata", "W.Bengal", "India", 223390, "Permanent"))),
+				new LinkedHashSet<>(Arrays.asList(subjects.getSubjects(1),subjects.getSubjects(5)))));
+		
+		teacher.add(new Teacher(2L, "Bina", "Sharma", "bina@sms.com", "1209444489", new Date(1989,7,9), true,Gender.FEMALE.getGender(), 
+				new LinkedHashSet<>(Arrays.asList(new Address(10L, "Lane-8", "Mumbai", "Maharashtra", "India",789654 , "Permanent"))),
+				new LinkedHashSet<>(Arrays.asList(subjects.getSubjects(1),subjects.getSubjects(4)))));
+		
+		teacher.add(new Teacher(3L, "Chinnappa", "Venkatesh", "ch.venktesha@sms.com", "3309334489", new Date(1987,1,10), true,Gender.MALE.getGender(), 
+				new LinkedHashSet<>(Arrays.asList(new Address(11L, "Kirupanna", "Hyderabad", "Telangana", "India", 208090, "Permanent"))),
+				new LinkedHashSet<>(Arrays.asList(subjects.getSubjects(2),subjects.getSubjects(3)))));
+		
+		teacher.add(new Teacher(4L, "Yamini", "Mehra", "yamini@sms.com", "1209556677", new Date(1990,8,13), true,Gender.FEMALE.getGender(), 
+				new LinkedHashSet<>(Arrays.asList(new Address(12L, "CocoonLane", "Kolkata", "W.Bengal", "India", 223390, "Permanent"))),
+				new LinkedHashSet<>(Arrays.asList(subjects.getSubjects(2),subjects.getSubjects(3)))));
+		
+		teacher.add(new Teacher(5L, "Pankaj", "Mishra", "pankaj@sms.com", "1280334489", new Date(1991,1,28), true,Gender.MALE.getGender(), 
+				new LinkedHashSet<>(Arrays.asList(new Address(13L, "BandukGali", "Patna", "Bihar", "India", 300300, "Permanent"))),
+				new LinkedHashSet<>(Arrays.asList(subjects.getSubjects(4),subjects.getSubjects(5)))));
+		
 		return teacher;	
 	}
 

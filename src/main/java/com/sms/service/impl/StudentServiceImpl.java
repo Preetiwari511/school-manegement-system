@@ -15,7 +15,7 @@ public class StudentServiceImpl implements StudentService {
 		Iterator<Student> itr = students.iterator();
 	    while(itr.hasNext()) {
 	    	Student student = itr.next();
-	    	if(student.getId()==id) {
+	    	if(student.getRollNo()==id) {
 	    		return student;
 	    	}
 	    }

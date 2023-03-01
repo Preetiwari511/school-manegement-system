@@ -1,47 +1,35 @@
 package com.sms.entity;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
-public final class Teacher {
-	public int id;
-	public String name;
-	public Subject subjects;
+public final class Teacher extends User {
+	private Set<Subject> subjects;
 	
-	public Teacher(int id, String name, Subject subject) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.subjects = subject;
+	
+
+	public Teacher(Long id, String firstName, String lastName, String email, String phoneNumber, Date dateOfBirth,
+			boolean active, String gender, Set<Address> addresses, Set<Subject>subjects ) {
+		super(id, firstName, lastName, email, phoneNumber, dateOfBirth, active, gender, addresses);
+		this.subjects = subjects;
 	}
 
-	public final int getId() {
-		return id;
-	}
-
-	public final void setId(int id) {
-		this.id = id;
-	}
-
-	public final String getName() {
-		return name;
-	}
-
-	public final void setName(String name) {
-		this.name = name;
-	}
-
-	public final Subject getSubject() {
+	public final Set<Subject> getSubject() {
 		return subjects;
 	}
 
-	public final void setSubject(Subject subject) {
+	public final void setSubject(Set<Subject> subject) {
 		this.subjects = subject;
 	}
 
 	@Override
 	public String toString() {
-		return "Teacher [id=" + id + ", name=" + name + ", subject=" + subjects + "]";
+		return "Teacher [subjects=" + subjects + ", id=" + getId() + ", firstName=" + getFirstName() + ", lastName=" + getLastName()
+				+ ", email=" + getEmail() + ", phoneNumber=" + getPhoneNumber() + ", dateOfBirth=" + getDateOfBirth() + ", active="
+				+ isActive() + ", gender=" + getGender() + ", addresses=" + getAddresses() + "]";
 	}
+
 
 	
 	
