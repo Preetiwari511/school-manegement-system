@@ -9,9 +9,9 @@ import com.sms.service.TeacherService;
 import com.sms.service.impl.TeacherServiceImpl;
 
 public class TeacherController {
-	//Scanner s;
+	Scanner s;
 	public void showStudentList() {
-		Scanner s = new Scanner(System.in);
+		s = new Scanner(System.in);
 		System.out.println("Please enter the class from the following list to see the stundents of it. ");
 		Application.CLASSES.forEach(classes -> {
 			System.out.println(classes.getName());
@@ -29,7 +29,7 @@ public class TeacherController {
 			 System.out.println("No record found.");
 		 }
 		
-		s.close();		
+		//s.close();		
 	}
 	
 }

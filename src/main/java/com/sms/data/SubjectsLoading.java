@@ -13,14 +13,6 @@ public final class SubjectsLoading {
 		subjects.add(new Subject(3, "English"));
 		subjects.add(new Subject(4, "Hindi"));
 		subjects.add(new Subject(5,"Social Science"));
-		subjects.add(new Subject(6,"History"));
-		subjects.add(new Subject(7,"Geography"));
-		subjects.add(new Subject(8,"Economics"));
-		subjects.add(new Subject(9,"Accounts"));
-		subjects.add(new Subject(10,"Biology"));
-		subjects.add(new Subject(11,"Chemistry"));
-		subjects.add(new Subject(12,"Physics"));
-		subjects.add(new Subject(13,"Computers"));
 		return subjects;
 	}
 }

@@ -21,11 +21,12 @@ public class Application {
 		System.out.println("**************************WELCOME**************************** ");
 		System.out.println("**** School Management System ****");
 		System.out.println("Loading Data....");
+		s = new Scanner(System.in);
 		loadData();
 		printData();
 		showMenu();
 		System.out.println("**** Thankyou for visiting us. ****");
-		
+		s.close();
 	}
 
 	private static void loadData() {
@@ -66,7 +67,6 @@ public class Application {
 					 System.out.println("Press 4,to get the teaching subject of a teacher.");
 					 System.out.println("Press 5,to get the total strength of the students in the school. ");
 					 System.out.println("Please enter '9' to go back to the main menu");
-					 Scanner s = new Scanner(System.in);
 					 int code = s.nextInt();
 					 switch(code) {
 					 	case 1:
@@ -107,20 +107,18 @@ public class Application {
 		 }
 		 
 	}
-	
 	public static int showMainMenu() throws InterruptedException {
-		s = new Scanner(System.in);
-		 System.out.println("**********************************************************************************************************");
+
+		System.out.println("**********************************************************************************************************");
 		 System.out.println("Please select an option from the following list given below to access the further options.  ");
 		 System.out.println("Press 1, if you are an student.");
 		 System.out.println("Press 2, if you are a teacher.");
 		 System.out.println("Press 3, if you are the Admin");
 		 System.out.println("Press 0 to exit");
-		// s= new Scanner(System.in);
-		 int num = s.nextInt();
+		  //s= new Scanner(System.in);
+		 int num = Integer.parseInt(s.next());
 		 System.out.println("Loading........");
 		// Thread.sleep(2000);
-		 //s.close();
 		 return num;
 	}
 

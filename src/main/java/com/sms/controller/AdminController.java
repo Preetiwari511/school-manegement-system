@@ -26,11 +26,8 @@ public class AdminController {
 			System.out.println(teacher.getFirstName()+ teacher.getLastName());
 		});
 		String teacher = s.next();
-		// not useful if stored in local collection, use global collection here
-		// this should be part of AdminService
-		List<String> classTeacherData = new LinkedList<>();
-		classTeacherData.add(assignClass);
-		classTeacherData.add(teacher);
+		AdminService adminService = new AdminServiceImpl();
+		adminService.allotTeacher(assignClass, teacher);
 	}
 	
 	public void getSubjectOfTeacher() {

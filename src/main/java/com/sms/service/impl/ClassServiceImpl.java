@@ -4,6 +4,7 @@ import java.util.Set;
 
 import com.sms.config.Application;
 import com.sms.entity.Classes;
+import com.sms.entity.Teacher;
 import com.sms.service.ClassService;
 
 public class ClassServiceImpl implements ClassService{
@@ -27,6 +28,18 @@ public class ClassServiceImpl implements ClassService{
 			sum = sum+ obj.getStrength();
 		}
 		return sum;
+	}
+
+	@Override
+	public void setClassTeacher(Teacher teacher, Classes classes) {
+		//Set<Classes> classesSet = Application.CLASSES;
+		for(Classes obj: Application.CLASSES) {
+			if(obj.equals(classes)) {
+				obj.setClassTeacher(teacher);
+				System.out.println("The Class Teacher of "+ classes.getName()+ " is "+ classes.getClassTeacher().getFullName());
+			}
+		}
+		
 	}
 
 }

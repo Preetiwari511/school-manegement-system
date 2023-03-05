@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Set;
 import com.sms.config.Application;
 import com.sms.entity.Student;
+import com.sms.entity.Subject;
+import com.sms.entity.Teacher;
 import com.sms.service.TeacherService;
 
 public class TeacherServiceImpl implements TeacherService{
@@ -21,6 +23,20 @@ public class TeacherServiceImpl implements TeacherService{
 	    		}
 	    	}
 	    return selectedStudents;
+	}
+
+	@Override
+	public Teacher getTeacher(String fullName) {
+		Set<Teacher> teachers = Application.TEACHER;
+		for(Teacher obj:teachers) {
+			if(obj.getFullName().equalsIgnoreCase(fullName)){
+				return obj;
+			}	
+	}
+		return null;
+	
+	
+	
 	}
 }
 
