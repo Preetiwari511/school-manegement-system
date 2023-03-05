@@ -12,7 +12,7 @@ public final class SubjectsLoading {
 		subjects.add(new Subject(2, "Science"));
 		subjects.add(new Subject(3, "English"));
 		subjects.add(new Subject(4, "Hindi"));
-		subjects.add(new Subject(5,"Social Science"));
+		subjects.add(new Subject(5,"SocialScience"));
 		return subjects;
 	}
 }

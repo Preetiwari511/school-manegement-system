@@ -1,9 +1,20 @@
 package com.sms.entity;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public final class Classes {
-	public String name;
-	public int strength;
-	public Teacher classTeacher;
+	private String name;
+	private int strength;
+	private Teacher classTeacher;
+	Map<Subject, Teacher> subjectTeacher = new LinkedHashMap<>();
+	
+	public Map<Subject, Teacher> getSubjectTeacher() {
+		return subjectTeacher;
+	}
+	public void setSubjectTeacher(Map<Subject, Teacher> subjectTeacher) {
+		this.subjectTeacher = subjectTeacher;
+	}
 	public Teacher getClassTeacher() {
 		return classTeacher;
 	}
@@ -29,8 +40,10 @@ public final class Classes {
 	}
 	@Override
 	public String toString() {
-		return "Classes [name=" + name + ", strength=" + strength + ", classTeacher=" + classTeacher + "]";
+		return "Classes [name=" + name + ", strength=" + strength + ", classTeacher=" + classTeacher
+				+ ", subjectTeacher=" + subjectTeacher + "]";
 	}
+	
 	
 	
 

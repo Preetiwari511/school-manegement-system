@@ -31,7 +31,7 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public void allotTeacher(String classes, String teacher) {
+	public void allotClassTeacher(String classes, String teacher) {
 		ClassService classService = new ClassServiceImpl();
 		TeacherService teacherService = new TeacherServiceImpl();
 		
@@ -42,5 +42,10 @@ public class AdminServiceImpl implements AdminService{
 		Set<Classes> classesSet = Application.CLASSES;
 		
 		classService.setClassTeacher(classTeacher, neededClass);
+	}
+
+	@Override
+	public void allotSubjectTeacherToClass(Teacher teacher, Subject subject, Classes classes) {
+		
 	}
 }
