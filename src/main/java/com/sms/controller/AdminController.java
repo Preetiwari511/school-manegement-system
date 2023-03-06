@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 import com.sms.config.Application;
+import com.sms.entity.Classes;
 import com.sms.entity.Subject;
 import com.sms.entity.Teacher;
 import com.sms.service.AdminService;
@@ -59,15 +60,20 @@ public class AdminController {
 		});
 		String selectedClass= s.next();
 		
-		System.out.println("Please select the subject");
-		Application.SUBJECTS.forEach(subject ->{System.out.println(subject.getName());});
-		String subject = s.next();
+		System.out.println("Please select the subject ID.");
+		Application.SUBJECTS.forEach(subject ->{System.out.println(" "+ subject.getId()+ " " + subject.getName());});
+		int subjectID = s.nextInt();
 		
 		System.out.println("Please select the teacher.");
 		Application.TEACHER.forEach(teachers ->{
 						System.out.println(teachers.getFullName());			
 		});
 		String teacher = s.next();
+		
+		AdminService adminService = new AdminServiceImpl();
+		Classes subjectTeacherofClass = adminService.allotSubjectTeacherToClass(teacher, subjectID, selectedClass);
+		
+		System.out.println("The Subject teacher for given subject is set" + subjectTeacherofClass.getSubjectTeacher());
 		
 	}
 	
