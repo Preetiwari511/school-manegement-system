@@ -1,15 +1,10 @@
 package com.sms.service.impl;
 
 import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashSet;
 import java.util.Set;
-
-
 import com.sms.config.Application;
 import com.sms.entity.Classes;
-import com.sms.entity.Student;
 import com.sms.entity.Subject;
 import com.sms.entity.Teacher;
 import com.sms.service.AdminService;
@@ -17,58 +12,71 @@ import com.sms.service.ClassService;
 import com.sms.service.SubjectsService;
 import com.sms.service.TeacherService;
 
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminService {
+	private ClassService classService;
+	private TeacherService teacherService;
+	private SubjectsService subjectsservice;
+
+	public AdminServiceImpl() {
+		this.classService = new ClassServiceImpl();
+		this.teacherService = new TeacherServiceImpl();
+		this.subjectsservice = new SubjectsServiceImpl();
+	}
 
 	@Override
 	public Set<Subject> findSubject(String teacher) {
 		Set<Teacher> teachers = Application.TEACHER;
 		Iterator<Teacher> itr = teachers.iterator();
-		while(itr.hasNext()) {
+		while (itr.hasNext()) {
 			Teacher currentTeacher = itr.next();
-			if(currentTeacher.getFullName().equalsIgnoreCase(teacher)) {
+			if (currentTeacher.getFullName().equalsIgnoreCase(teacher)) {
 				return currentTeacher.getSubject();
 			}
 		}
 		return null;
-	
+
 	}
 
 	@Override
 	public void allotClassTeacher(String classes, String teacher) {
-		ClassService classService = new ClassServiceImpl();
-		TeacherService teacherService = new TeacherServiceImpl();
-		
-		Teacher classTeacher=teacherService.getTeacher(teacher);
+		Teacher classTeacher = teacherService.getTeacher(teacher);
 		Classes neededClass = classService.getClass(classes);
-		
-		Set<Teacher> teachers = Application.TEACHER;
-		Set<Classes> classesSet = Application.CLASSES;
-		
+
 		classService.setClassTeacher(classTeacher, neededClass);
 	}
 
 	@Override
 	public Classes allotSubjectTeacherToClass(String teacher, int subjectID, String classes) {
-		ClassService classService = new ClassServiceImpl();
-		TeacherService teacherService = new TeacherServiceImpl();
-		SubjectsService subjectsservice = new SubjectsServiceImpl();
-		Map<Subject,Teacher> mapSubTeacher = new LinkedHashMap<>();
-		
-		Teacher subjectTeacher=teacherService.getTeacher(teacher);
+		Teacher subjectTeacher = teacherService.getTeacher(teacher);
 		Classes neededClass = classService.getClass(classes);
 		Subject classSubject = subjectsservice.getSubjects(subjectID);
-		Set<Classes> classesItr = Application.CLASSES;
-		for(Classes obj: classesItr) {
-			if(obj.equals(neededClass)) {
-				mapSubTeacher.put(classSubject, subjectTeacher);
-				obj.setSubjectTeacher(mapSubTeacher);
-				return obj;
-			}
-		}
-		return null;
-		
+		neededClass.getSubjectTeacher().put(classSubject, subjectTeacher);
+		return neededClass;
+
+	}
 	
+	@Override
+	public Teacher allotSubjectToTeacher(int subjectId, String teacher) {
+		Teacher subjectTeacher = teacherService.getTeacher(teacher);
+		Subject subject = subjectsservice.getSubjects(subjectId);
+		subjectTeacher.getSubject().add(subject);
+		return subjectTeacher;
+		
 	}
 
-	
+	@Override
+	public Set<Teacher> listTeachersBySubjectId(int subjectId) {
+		Set<Teacher> teachers = Application.TEACHER;
+		Set<Teacher> filteredTeachers = new LinkedHashSet<Teacher>();
+		for(Teacher obj : teachers) {
+			for(Subject obj1 : obj.getSubject()) {
+				if(obj1.getId().equals(subjectId)) {
+					filteredTeachers.add(obj);
+					
+				}
+			}
+		}
+		return filteredTeachers;
+	}
+
 }

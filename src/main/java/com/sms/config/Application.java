@@ -55,11 +55,11 @@ public class Application {
 			 	case 1: 
 			 		StudentController studentController = new StudentController();
 			 		studentController.showMyDetails();
-				break;
+			 		break;
 			 	case 2: 
 			 		TeacherController teacherController = new TeacherController();
 			 		teacherController.showStudentList();
-			 	break;
+			 		break;
 			 	case 3:
 			 		showAdminHandleMenu();
 			 	case 0:
@@ -99,6 +99,8 @@ public class Application {
 		 System.out.println("Press 4,to get the teaching subject of a teacher.");
 		 System.out.println("Press 5,to get the total strength of the students in the school. ");
 		 System.out.println("Press 6, to allot a subject teacher for a class.");
+		 System.out.println("Press 7, to allot a subject to a teacher");
+		 System.out.println("Press 8, to get list of subject teachers for selected subject");
 		 System.out.println("Please enter '9' to go back to the main menu");
 		 int code = s.nextInt();
 		 switch(code) {
@@ -127,6 +129,16 @@ public class Application {
 			// add a case to go back to the main menu
 		 	case 6: 
 		 		adminController.allotSubjectTeacherToClass();
+		 		showAdminHandleMenu();
+		 		break;
+		 	case 7 : 
+		 		adminController.allotSubjectToTeacher();
+		 		showAdminHandleMenu();
+		 		break;
+		 	case 8 :
+		 		adminController.listTeachersBySubjectId();
+		 		showAdminHandleMenu();
+		 		break;
 		 	case 9: 
 		 		showMenu();
 		 }

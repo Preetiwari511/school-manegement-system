@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Set;
 import com.sms.config.Application;
 import com.sms.entity.Student;
-import com.sms.entity.Subject;
 import com.sms.entity.Teacher;
 import com.sms.service.TeacherService;
 

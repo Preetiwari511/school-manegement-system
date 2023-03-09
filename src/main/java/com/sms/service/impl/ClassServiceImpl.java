@@ -29,17 +29,28 @@ public class ClassServiceImpl implements ClassService{
 		}
 		return sum;
 	}
-
+	
 	@Override
-	public void setClassTeacher(Teacher teacher, Classes classes) {
-		//Set<Classes> classesSet = Application.CLASSES;
-		for(Classes obj: Application.CLASSES) {
-			if(obj.equals(classes)) {
-				obj.setClassTeacher(teacher);
-				System.out.println("The Class Teacher of "+ classes.getName()+ " is "+ classes.getClassTeacher().getFullName());
-			}
-		}
-		
+	public Integer getTotalStrength(String className) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
+	public Integer getFemaleStudents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Integer getFemaleStudents(String className) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setClassTeacher(Teacher teacher, Classes classes) {
+		 classes.setClassTeacher(teacher);
+	}
+		
 }
+
+
